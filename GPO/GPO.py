@@ -269,6 +269,7 @@ def main():
     functionInput = myObjective
     initialXVals = np.array([[2.45,3.43,4.54,6.5,8.8]])
     initialYVals = myObjective(initialXVals)
+    aquisition_function = 'UCB'
     sigma = 2
     len_scale = 1
     plotOpt = True
@@ -284,7 +285,7 @@ def main():
     ground_truth = ax.plot(x_gt[0],y_gt[0],label = 'Ground truth')
     
     # Run optimizer and display result
-    maximised_function = GPOptimiser(x_domain_start,x_domain_end,x_domain_stepCount,functionInput,initialXVals,initialYVals,sigma,len_scale,plotOpt,maxIter,sigmaN,lambda_scale)
+    maximised_function = GPOptimiser(x_domain_start,x_domain_end,x_domain_stepCount,functionInput,initialXVals,initialYVals,aquisition_function,sigma,len_scale,plotOpt,maxIter,sigmaN,lambda_scale)
     print("Optimiser returned: {}".format(maximised_function))
    
     
